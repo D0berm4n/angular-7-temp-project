@@ -21,7 +21,8 @@ import { UserJwtController } from '../interfaces/user-jwt-controller'
     login(username: string, password: string): Observable<any> {
         return this.http.post(environment.apiURL + '/api/authenticate', { username: username, password: password })
           .pipe(map((response: UserJwtController) => {
-              return response.id_token;
+            // #ToDo: add error catcher
+            return response.id_token;
             })
           )
     }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgForm} from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 import { UserJwtControllerService } from '../../services/user-jwt-controller.service';
 
@@ -12,28 +13,50 @@ import { UserJwtControllerService } from '../../services/user-jwt-controller.ser
 })
 
 export class LoginComponent implements OnInit {
-  credentials: any = {};
-  loading = false;
-  error = '';
+
+  formGroup: FormGroup;
 
   constructor (
     private router: Router,
-    private userJWTControllerService: UserJwtControllerService
+    private userJWTControllerService: UserJwtControllerService,
+    private formBuilder: FormBuilder
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.createForm();
+  }
 
-  onSubmit(form: NgForm){
-    console.log(form);
-}
+  createForm() {
+    this.formGroup = this.formBuilder.group({
+      'username': ['', Validators.required],
+      'password': ['', Validators.required],
+    });
+  }
 
-  login(username, password) {
-    console.log(username, password)
-    // this.loading = true;
-    this.userJWTControllerService.login('admin', 'admin')
+  getError(el) {
+    switch (el) {
+      case 'user':
+        if (this.formGroup.get('username').hasError('required')) {
+          return 'Username required';
+        }
+        break;
+      case 'pass':
+        if (this.formGroup.get('password').hasError('required')) {
+          return 'Password required';
+        }
+        break;
+      default:
+        return '';
+    }
+  }
+
+  onSubmit(post) {
+    this.userJWTControllerService.login(this.formGroup.get('username').value, this.formGroup.get('password').value)
       .subscribe((result) => {
-        console.log('result')
-        console.log(result)
+        if (result) {
+          localStorage.setItem('token', result);
+          this.router.navigate(['/battles']);
+        }
     });
   }
 }
