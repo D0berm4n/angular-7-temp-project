@@ -4,8 +4,13 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
-@Injectable()
-export class UserJwtControllerService {
+import { UserJwtController } from '../interfaces/user-jwt-controller'
+
+@Injectable({
+    providedIn: 'root',
+  })
+  
+  export class UserJwtControllerService {
     public token: string;
 
     constructor(private http: HttpClient) {
@@ -13,26 +18,11 @@ export class UserJwtControllerService {
         this.token = currentUser && currentUser.token;
     }
 
-    login(username: string, password: string): Observable<boolean> {
+    login(username: string, password: string): Observable<any> {
         return this.http.post(environment.apiURL + '/api/authenticate', { username: username, password: password })
-          .pipe(
-            map((response: any) => {
-              let token = response.id_token;
-                if (token) {
-                    this.token = token;
-
-                    localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token }));
-
-                    return true;
-                } else {
-                    return false;
-                }
+          .pipe(map((response: UserJwtController) => {
+              return response.id_token;
             })
           )
-    }
-
-    logout(): void {
-        this.token = null;
-        localStorage.removeItem('currentUser');
     }
 }

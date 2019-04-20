@@ -1,15 +1,15 @@
 <div class="authentication">
-  <form class="authentication-form">
+  <form (ngSubmit)="login(username.value, password.value)">
     <mat-form-field class="login-field">
-      <input matInput placeholder="Login" required>
+      <input matInput placeholder="Username" type="text" #username required>
     </mat-form-field>
 
     <mat-form-field class="password-field">
-      <input matInput placeholder="Password" type="password" required>
+      <input matInput placeholder="Password" type="password" #password required>
     </mat-form-field>
 
-    <button mat-raised-button class="login-button" (click)="login()">
+    <button mat-raised-button class="login-button">
       Login
     </button>
-  </form>
+    </form>
 </div>

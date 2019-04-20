@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm} from '@angular/forms';
+
 import { UserJwtControllerService } from '../../services/user-jwt-controller.service';
 
 @Component({
@@ -10,25 +12,28 @@ import { UserJwtControllerService } from '../../services/user-jwt-controller.ser
 })
 
 export class LoginComponent implements OnInit {
-  model: any = {};
+  credentials: any = {};
   loading = false;
   error = '';
 
-  constructor(
+  constructor (
     private router: Router,
     private userJWTControllerService: UserJwtControllerService
-    ) {}
+  ) {}
 
-    ngOnInit() {
-      // reset login status
-      this.userJWTControllerService.logout();
-  }
+  ngOnInit() {}
 
-  login() {
-    console.log('login')
-    this.loading = true;
-    this.userJWTControllerService.login('admin', 'admin').subscribe((result) => {
-      console.log(result)
-  });
+  onSubmit(form: NgForm){
+    console.log(form);
+}
+
+  login(username, password) {
+    console.log(username, password)
+    // this.loading = true;
+    this.userJWTControllerService.login('admin', 'admin')
+      .subscribe((result) => {
+        console.log('result')
+        console.log(result)
+    });
   }
 }
