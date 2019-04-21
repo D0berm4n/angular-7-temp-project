@@ -42,7 +42,7 @@
       <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
       <mat-cell *matCellDef="let row" [style.color]="row.color">
         <a mat-button href="/battle">View</a>
-        <a *ngIf="row.status != 'Draft' && row.status != 'Pending'" mat-button href="/participant">Participant</a>
+        <a *ngIf="row.status != 'Draft' && row.status != 'Pending'" mat-button href="/participants">Participant</a>
       </mat-cell>
     </ng-container>
 

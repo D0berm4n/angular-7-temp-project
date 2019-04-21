@@ -1,0 +1,76 @@
+.row {
+    display: flex;
+} 
+
+.column {
+    flex: 50%;
+}
+
+.title {
+    padding: 0 10px 0 10px;
+    width: 93%;
+}
+
+.description {
+    padding: 0 10px 0 10px;
+    width: 93%;
+}
+
+.datepicker {
+    padding: 0 10px 0 10px;
+    width: 45%;
+}
+
+.prize-name {
+    width: 30%;
+    padding: 0 0 0 10px;
+}
+
+.prize-currency {
+    width: 30%;
+    padding: 0 0 0 1%;
+}
+
+.prize-amount {
+    width: 30%;
+    padding: 0 0 0 1%;
+}
+
+.supplier-name {
+    padding: 0 10px 0 10px;
+    width: 45%;
+}
+
+.supplier-url {
+    padding: 0 10px 0 10px;
+    width: 45%;
+}
+
+.social-text {
+    padding: 0 10px 0 10px;
+    width: 90%;
+}
+
+.story {
+    padding: 0 10px 0 10px;
+    width: 45%;
+}
+
+.tags {
+    padding: 0 10px 0 10px;
+    width: 45%;
+}
+
+.image {
+    padding: 0 10px 0 10px;
+    width: 93%;
+}
+
+.button-row {
+    padding-right: 50px;
+    float: right;
+}
+
+.button-row button {
+    margin-right: 10px;
+}

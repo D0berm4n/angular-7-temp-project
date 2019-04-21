@@ -1,0 +1,10 @@
+.example-header {
+    display: flex;
+    margin-left: auto;
+}
+
+.create-button {
+    margin-left: 85%;
+    font-size: 14px;
+    padding: 0 10px 0 10px;
+}

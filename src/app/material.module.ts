@@ -8,6 +8,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
     imports: [
@@ -18,7 +21,10 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
         MatSortModule,
         MatTableModule,
         MatPaginatorModule,
-        MatButtonToggleModule
+        MatButtonToggleModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatSelectModule
     ],
     exports: [
         MatToolbarModule,
@@ -28,7 +34,10 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
         MatSortModule,
         MatTableModule,
         MatPaginatorModule,
-        MatButtonToggleModule
+        MatButtonToggleModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatSelectModule
     ],
     providers: [ ]
   })

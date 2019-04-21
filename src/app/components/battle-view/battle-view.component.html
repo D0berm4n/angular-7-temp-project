@@ -1,3 +1,65 @@
-<p>
-  battle-view works!
-</p>
+<div class="row">
+  <div class="column">
+      <mat-form-field class="title">
+          <input type="text" matInput placeholder="Title">
+      </mat-form-field>
+      <mat-form-field class="description">
+          <input type="text" matInput placeholder="Description">
+      </mat-form-field>        
+      <mat-form-field class="prize-name">
+          <input type="text" matInput placeholder="Prize name">
+      </mat-form-field>        
+      <mat-form-field class="prize-currency">
+        <mat-label>Prize currency</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let currency of currencies" [value]="currency.value">
+            {{currency.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="prize-amount">
+          <input type="text" matInput placeholder="Prize amount">
+      </mat-form-field>
+      <!-- https://github.com/merlosy/ngx-material-file-input -->
+      <mat-form-field class="image">
+          <input type="text" matInput placeholder="Image">
+      </mat-form-field>
+  </div>
+  <div class="column">
+      <mat-form-field class="datepicker">
+          <input matInput [matDatepicker]="start" placeholder="Choose a start date">
+          <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+          <mat-datepicker #start></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="datepicker">
+            <input matInput [matDatepicker]="finish" placeholder="Choose a finish date">
+            <mat-datepicker-toggle matSuffix [for]="finish"></mat-datepicker-toggle>
+            <mat-datepicker #finish></mat-datepicker>
+          </mat-form-field>
+        <mat-form-field class="supplier-name">
+            <input type="text" matInput placeholder="Supplier name">
+        </mat-form-field>
+        <mat-form-field class="supplier-url">
+            <input type="text" matInput placeholder="Supplier URL">
+        </mat-form-field>        
+        <mat-form-field class="social-text">
+            <input type="text" matInput placeholder="Social text">
+        </mat-form-field>
+        <mat-form-field class="story">
+            <input type="text" matInput placeholder="Story">
+        </mat-form-field>
+        <mat-form-field class="tags">
+          <mat-label>Tags</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let tag of tags" [value]="tag.value">
+              {{tag.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="button-row">
+            <button mat-flat-button color="primary">Back</button>
+            <button mat-flat-button color="primary">Save</button>
+            <button mat-flat-button color="primary">Publish/Cancel/Remove</button>
+        </div>            
+      </div>
+</div>

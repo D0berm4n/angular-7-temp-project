@@ -10,7 +10,7 @@ import { MaterialModule } from './material.module';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BattleViewComponent } from './components/battle-view/battle-view.component';
-import { ParticipantViewComponent } from './components/participant-view/participant-view.component';
+import { ParticipantsViewComponent } from './components/participants-view/participants-view.component';
 import { UsersViewComponent } from './components/users-view/users-view.component';
 import { TagsViewComponent } from './components/tags-view/tags-view.component';
 
@@ -20,7 +20,7 @@ import { TagsViewComponent } from './components/tags-view/tags-view.component';
     LoginComponent,
     DashboardComponent,
     BattleViewComponent,
-    ParticipantViewComponent,
+    ParticipantsViewComponent,
     UsersViewComponent,
     TagsViewComponent
   ],

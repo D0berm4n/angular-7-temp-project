@@ -1,0 +1,41 @@
+<div class="example-header">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+  </mat-form-field>
+</div>
+
+<div class="example-container mat-elevation-z8">
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> # </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="username">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> User Name </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.username}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="socialnetworks">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Social Networks </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.socialnetworks}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="likes">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Likes </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.likes}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="video">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Video </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.video}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]='[10, 25, 50]'></mat-paginator>
+</div>
